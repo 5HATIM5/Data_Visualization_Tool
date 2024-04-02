@@ -81,8 +81,4 @@ Upload Speed: The upload speed for a 15 MB file was tested to be approximately 1
 Contributions to the Battery Development Data Analysis Tool are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
 
 # Demo Video
-[Placeholder for Demo
-
 https://github.com/5HATIM5/Data_Visualization_Tool/assets/75577655/8c289c6e-d470-4155-beeb-a7c0f551538d
-
- Video]
