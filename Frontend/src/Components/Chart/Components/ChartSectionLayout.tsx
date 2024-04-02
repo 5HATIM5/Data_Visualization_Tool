@@ -41,7 +41,7 @@ const ChartSectionLayout = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center md:items-stretch md:flex-row mb-5">
+    <div className="flex flex-col items-center  md:justify-center md:items-stretch md:flex-row mb-5">
       {/* Chart Container */}
       <div className="relative flex-1 md:mr-4">
         {/* Download Chart Button */}
@@ -69,7 +69,7 @@ const ChartSectionLayout = (props: Props) => {
               ref={chartRef}
               data={ScatterChartData()}
               options={ScatterChartOptions()}
-              id="stackD"
+              className="w-full h-40"
             />
           )}
           {props.chartRefName === "multiLineChart" && (
@@ -77,7 +77,7 @@ const ChartSectionLayout = (props: Props) => {
               ref={chartRef}
               data={MultiLineChartData()}
               options={MultiLineChartOptions()}
-              id="stackD"
+              className="w-full h-40"
             />
           )}
           {props.chartRefName === "barChart" && (
@@ -85,7 +85,7 @@ const ChartSectionLayout = (props: Props) => {
               ref={chartRef}
               data={BarChartData()}
               options={BarChartOptions()}
-              id="stackD"
+              className="w-full h-40"
             />
           )}
 
@@ -108,7 +108,7 @@ const ChartSectionLayout = (props: Props) => {
       </div>
 
       {/* Controls Container */}
-      <div className="flex w-80 lg:ml-4">
+      <div className="flex w-full md:w-80 lg:ml-4">
         {/* Render chart controls based on the chartRefName prop */}
         {props.chartRefName === "scatterChart" && (
           <ChartControls

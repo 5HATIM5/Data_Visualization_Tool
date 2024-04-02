@@ -50,7 +50,7 @@ const GenerateChartSection = (_props: Props) => {
           <div className="md:w-1/5 w-full ">
             <label
               htmlFor="charType"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm mt-2  font-medium text-gray-900 dark:text-white"
             >
               Select Chart Type
             </label>
@@ -74,7 +74,7 @@ const GenerateChartSection = (_props: Props) => {
           <div className=" md:w-1/5 w-full">
             <label
               htmlFor="xAxis"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 mt-2  text-sm font-medium text-gray-900 dark:text-white"
             >
               Select X Axis
             </label>
@@ -96,14 +96,14 @@ const GenerateChartSection = (_props: Props) => {
           <div className=" md:w-1/5 w-full=">
             <label
               htmlFor="yAxis"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Select Value
             </label>
             <select
               id="yAxis"
               value={yAxis}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border s border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               onChange={handleYAxisChange}
               required
             >
@@ -116,7 +116,7 @@ const GenerateChartSection = (_props: Props) => {
           <div className=" md:w-1/5 w-full=">
             <label
               htmlFor="zAxis"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 mt-2  text-sm font-medium text-gray-900 dark:text-white"
             >
               Select Value
             </label>
@@ -139,7 +139,7 @@ const GenerateChartSection = (_props: Props) => {
             <button
               disabled={!selectedChartType || !xAxis || !yAxis || !zAxis}
               onClick={handleGenerateChart}
-              className="bg-teal-600 text-gray-100 font-medium text-[13px] py-3 px-5 rounded transition duration-300 ease-in-out hover:bg-teal-100 hover:text-teal-900"
+              className="bg-teal-600 mt-3  text-gray-100 font-medium text-[13px] py-3 px-5 rounded transition duration-300 ease-in-out hover:bg-teal-100 hover:text-teal-900"
             >
               Generate Chart
             </button>

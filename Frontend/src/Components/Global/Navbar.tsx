@@ -3,6 +3,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
+// Navigation links
 const navigation = [
   { name: "Home", href: "/", target: "_self" },
   { name: "Features", href: "/features", target: "_self" },
@@ -14,10 +15,14 @@ const navigation = [
   { name: "About", href: "/about", target: "_self" },
 ];
 
+/**
+ * Navbar component for the application.
+ */
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [show, handleShow] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // State to manage mobile menu visibility
+  const [show, handleShow] = useState(false); // State to manage navbar visibility on scroll
 
+  // Effect to handle navbar visibility on scroll
   useEffect(() => {
     const handleScroll = () => {
       handleShow(window.scrollY > 50);
@@ -61,7 +66,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item,index) => (
+          {navigation.map((item, index) => (
             <Link
               key={index}
               to={item.href}
@@ -81,6 +86,7 @@ const Navbar = () => {
           </Link>
         </div>
       </nav>
+      {/* Mobile menu */}
       <Dialog
         as="div"
         className="lg:hidden"
@@ -109,8 +115,9 @@ const Navbar = () => {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
+              {/* Navigation links */}
               <div className="space-y-2 py-6">
-                {navigation.map((item,index) => (
+                {navigation.map((item, index) => (
                   <Link
                     key={index}
                     to={item.href}
@@ -121,6 +128,7 @@ const Navbar = () => {
                   </Link>
                 ))}
               </div>
+              {/* Contact link */}
               <div className="py-6">
                 <Link
                   to="https://www.linkedin.com/in/5hatim5/"

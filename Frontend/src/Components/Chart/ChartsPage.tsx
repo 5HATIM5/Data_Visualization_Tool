@@ -1,13 +1,10 @@
 import PolygonBottom from "../Global/PolygonBottom";
 import PolygonTop from "../Global/PolygonTop";
 import ScrollDown from "../Global/ScrollDown";
-
 import Card from "./Components/Card";
 import GenerateChartSection from "./Components/GenerateChartSection";
 import { useEffect } from "react";
 import Loader from "../Global/Loader";
-
-// Importing necessary Chart.js modules and plugins
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import zoomPlugin from "chartjs-plugin-zoom";
@@ -21,29 +18,36 @@ Chart.register(zoomPlugin, CategoryScale);
 
 type Props = {};
 
+/**
+ * ChartsPage component to display visualizations and dashboard data.
+ * @param _props Props (not used).
+ */
 const ChartsPage = (_props: Props) => {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+
+  // Selecting necessary state from Redux store
   const { status, error, totalRecords, duplicateRecords } = useSelector(
     (state: RootState) => state.dashboardData
   );
-
   const { file } = useSelector((state: RootState) => state.fileUpload);
 
   useEffect(() => {
-    // Check the current path
+    // Redirect if no file is uploaded
     !file && navigate("/");
 
+    // Fetch dashboard data if status is idle
     if (status === "idle") {
       dispatch<any>(fetchDashboardData());
     }
   }, [status, dispatch]);
 
+  // Render loader if data is loading
   if (status === "loading" || status === "idle") {
     return <Loader />;
   }
 
+  // Render error message if data fetch failed
   if (status === "failed") {
     return (
       <div>
@@ -70,21 +74,9 @@ const ChartsPage = (_props: Props) => {
         <div className="flex justify-center items-center py-4">
           <div className="mt-3 w-screen px-10 md:px-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {/* Information Cards */}
-            <Card
-              keyNum={1}
-              records={totalRecords + duplicateRecords}
-              desc={"No of Records in CSV"}
-            />
-            <Card
-              keyNum={2}
-              records={duplicateRecords}
-              desc={"No of Duplicate Records"}
-            />
-            <Card
-              keyNum={3}
-              records={totalRecords}
-              desc={"No of Valid Records"}
-            />
+            <Card keyNum={1} records={totalRecords + duplicateRecords} desc={"No of Records in CSV"} />
+            <Card keyNum={2} records={duplicateRecords} desc={"No of Duplicate Records"} />
+            <Card keyNum={3} records={totalRecords} desc={"No of Valid Records"} />
           </div>
         </div>
 

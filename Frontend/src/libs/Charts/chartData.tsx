@@ -2,6 +2,10 @@ import { ChartData } from "chart.js";
 import { RootState } from "../../Redux/store";
 import { useSelector } from "react-redux";
 
+/**
+ * Function to generate data for a scatter chart.
+ * @returns {ChartData<"scatter">} - Data for the scatter chart.
+ */
 export const ScatterChartData = (): ChartData<"scatter"> => {
   const { xAxis, yAxis, zAxis, rangeStart, rangeEnd } = useSelector(
     (state: RootState) => state.chartData
@@ -33,6 +37,10 @@ export const ScatterChartData = (): ChartData<"scatter"> => {
   };
 };
 
+/**
+ * Function to generate data for a multi-line chart.
+ * @returns {ChartData<"line">} - Data for the multi-line chart.
+ */
 export const MultiLineChartData = (): ChartData<"line"> => {
   const { xAxis, yAxis, zAxis, rangeStart, rangeEnd } = useSelector(
     (state: RootState) => state.chartData
@@ -41,7 +49,6 @@ export const MultiLineChartData = (): ChartData<"line"> => {
   const limitedYAxis = yAxis.slice(rangeStart, rangeEnd);
   const limitedZAxis = zAxis.slice(rangeStart, rangeEnd);
 
-  console.log(xAxis);
   return {
     labels: limitedXAxis,
     datasets: [
@@ -63,6 +70,10 @@ export const MultiLineChartData = (): ChartData<"line"> => {
   };
 };
 
+/**
+ * Function to generate data for a bar chart.
+ * @returns {ChartData<"bar">} - Data for the bar chart.
+ */
 export const BarChartData = (): ChartData<"bar"> => {
   const { xAxis, yAxis, zAxis, rangeStart, rangeEnd } = useSelector(
     (state: RootState) => state.chartData

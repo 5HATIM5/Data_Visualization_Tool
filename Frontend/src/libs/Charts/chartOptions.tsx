@@ -2,7 +2,10 @@ import { ChartOptions } from "chart.js";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
 
-// Function to generate options for a scatter chart
+/**
+ * Function to generate options for a scatter chart.
+ * @returns {ChartOptions<"scatter">} - Options for the scatter chart.
+ */
 export const ScatterChartOptions = (): ChartOptions<"scatter"> => {
   const { scatterChart } = useSelector((state: RootState) => state.chartOption);
 
@@ -34,7 +37,6 @@ export const ScatterChartOptions = (): ChartOptions<"scatter"> => {
       x: {
         type: "linear",
         position: "bottom",
-
         title: {
           display: true,
           text: scatterChart.xAxisLabel,
@@ -44,7 +46,7 @@ export const ScatterChartOptions = (): ChartOptions<"scatter"> => {
       y: {
         title: {
           display: true,
-          text: scatterChart.xAxisLabel,
+          text: scatterChart.yAxisLabel, // Fixed typo: changed scatterChart.xAxisLabel to scatterChart.yAxisLabel
           color: scatterChart.axisColor,
         },
       },
@@ -58,7 +60,10 @@ export const ScatterChartOptions = (): ChartOptions<"scatter"> => {
   };
 };
 
-// Function to generate options for a multi-line chart
+/**
+ * Function to generate options for a multi-line chart.
+ * @returns {ChartOptions<"line">} - Options for the multi-line chart.
+ */
 export const MultiLineChartOptions = (): ChartOptions<"line"> => {
   const { multiLineChart } = useSelector(
     (state: RootState) => state.chartOption
@@ -100,7 +105,7 @@ export const MultiLineChartOptions = (): ChartOptions<"line"> => {
       y: {
         title: {
           display: true,
-          text: multiLineChart.xAxisLabel,
+          text: multiLineChart.yAxisLabel, // Fixed typo: changed multiLineChart.xAxisLabel to multiLineChart.yAxisLabel
           color: multiLineChart.axisColor,
         },
       },
@@ -114,7 +119,10 @@ export const MultiLineChartOptions = (): ChartOptions<"line"> => {
   };
 };
 
-// Function to generate options for a bar chart
+/**
+ * Function to generate options for a bar chart.
+ * @returns {ChartOptions<"bar">} - Options for the bar chart.
+ */
 export const BarChartOptions = (): ChartOptions<"bar"> => {
   const { barChart } = useSelector((state: RootState) => state.chartOption);
 

@@ -7,10 +7,17 @@ type Props = {
   errorType: string;
 };
 
+/**
+ * Popover component to display error messages.
+ * @param props Props containing error type.
+ */
 const Popover = (props: Props) => {
   let [isOpen, setIsOpen] = useState(true);
   const dispatch = useDispatch();
 
+  /**
+   * Function to close the popover.
+   */
   function closeModal() {
     setIsOpen(false);
     dispatch(setErrorMessage(""));

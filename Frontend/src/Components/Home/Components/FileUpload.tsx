@@ -10,7 +10,7 @@ import {
 } from "../../../Redux/Slice/FileUploadSlice"; // Importing action creators from the FileUploadSlice
 import Popover from "../../Global/Popover";
 import { Link } from "react-router-dom";
-import { uploadFileRequest } from "../../../libs/ApiCalls";
+import { uploadFileRequest } from "../../../libs/Services/UploadFileRequest";
 import { resetDashbaordState } from "../../../Redux/Slice/DashbaordDataSlice";
 
 type Props = {};
